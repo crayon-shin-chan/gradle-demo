@@ -1,0 +1,10 @@
+/* task定义一个任务 */
+task hello{
+    /* do last代表任务允许 */
+    doLast{
+        println "Hello World！"
+    }
+}
+
+/* 默认任务名称，直接执行 */
+defaultTasks 'hello'
