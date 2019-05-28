@@ -1,0 +1,6 @@
+task upper{
+    String originName = "xiao hong"
+    String upperName = originName.toUpperCase()
+    println originName
+    println upperName
+}

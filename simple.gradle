@@ -1,8 +1,9 @@
 /* task定义一个任务 */
 task hello{
-    /* do last代表任务允许 */
+    group 'simple'
+    description 'say hello world'
     doLast{
-        println "Hello World！"
+        println 'Hello World！'
     }
 }
 
