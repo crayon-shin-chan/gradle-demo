@@ -4,3 +4,8 @@ task upper{
     println originName
     println upperName
 }
+
+task count{
+    /* 执行四次，$it为序号，从0开始 */
+    4.times { print "$it " }
+}
