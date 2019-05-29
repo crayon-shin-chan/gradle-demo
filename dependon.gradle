@@ -1,0 +1,10 @@
+task hello{
+    println '被依赖的任务'
+}
+
+task intro{
+    dependsOn hello
+    doLast{
+        println "I'm Gradle"
+    }
+}
