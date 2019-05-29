@@ -1,0 +1,15 @@
+/* gradle可以方便的调用ant任务 */
+task loadfile{
+    doLast{
+        /* 加载文件列表 */
+        def files = file('../task').listFiles().sort()
+        files.each { File file ->
+            if (file.isFile()) {
+                /* 使用ant来调用ant任务 */
+                ant.loadfile(srcFile: file, property: file.name)
+                println "文件名称为：$file.name"
+                println "${ant.properties[file.name]}"
+            }
+        }
+    }
+}
