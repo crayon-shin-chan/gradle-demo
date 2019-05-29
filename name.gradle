@@ -1,0 +1,6 @@
+/* 可以使用$引用任务属性 */
+task hello{
+    doLast{
+        println "my name is $hello.name!"
+    }
+}
