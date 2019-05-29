@@ -1,0 +1,15 @@
+/* 任务的自定义属性通过ext设置 */
+task hello{
+    /* 定义任务属性在ext中定义 */
+    ext.hehe = "呵呵"
+    doLast{
+        println "hello world!"
+    }
+}
+
+task hehe{
+    doLast{
+        /* 引用属性时不需要ext */
+        println hello.hehe
+    }
+}
