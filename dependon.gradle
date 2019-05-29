@@ -1,10 +1,26 @@
 task hello{
-    println '被依赖的任务'
+    doLast{
+        println '被依赖的任务'
+    }
 }
 
+/* 依赖的任务会首先运行 */
 task intro{
     dependsOn hello
     doLast{
         println "I'm Gradle"
+    }
+}
+
+/* 当被依赖的任务没有在前面声明时，需要使用字符串任务名称的引用 */
+task taskX{
+    dependsOn 'taskY'
+    doLast{
+        println 'taskX'
+    }
+}
+task taskY{
+    doLast{
+        println 'taskY'
     }
 }

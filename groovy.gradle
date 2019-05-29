@@ -1,11 +1,15 @@
 task upper{
-    String originName = "xiao hong"
-    String upperName = originName.toUpperCase()
-    println originName
-    println upperName
+    doLast{
+        String originName = "xiao hong"
+        String upperName = originName.toUpperCase()
+        println originName
+        println upperName
+    }
 }
 
 task count{
-    /* 执行四次，$it为序号，从0开始 */
-    4.times { print "$it " }
+    doLast{
+        /* 执行四次，$it为序号，从0开始 */
+        4.times { print "$it " }
+    }
 }
