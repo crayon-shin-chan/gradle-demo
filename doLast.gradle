@@ -1,0 +1,17 @@
+/* doLast为动作列表最后一项，可以有多个 */
+task hello{
+    doLast{
+        println '第一次执行'
+    }
+}
+
+/* doFirst为动作列表第一项 */
+hello.doFirst {
+    println '第二次执行'
+}
+hello.doLast {
+    println '第三次执行'
+}
+hello.doLast {
+    println '第四次执行'
+}

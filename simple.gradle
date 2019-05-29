@@ -6,6 +6,3 @@ task hello{
         println 'Hello World！'
     }
 }
-
-/* 默认任务名称，直接执行 */
-defaultTasks 'hello'
