@@ -1,0 +1,24 @@
+task checksum{
+    doLast{
+        fileList('../task').each {File file ->
+            ant.checksum(file: file, property: "cs_$file.name")
+            println "$file.name 检查校验和: ${ant.properties["cs_$file.name"]}"
+        }
+    }
+}
+
+task loadfile{
+    doLast{
+        fileList('../task').each {File file ->
+            ant.loadfile(srcFile: file, property: file.name)
+            println "找到文件： $file.name"
+        }
+    }
+}
+
+/* 列出目录下文件列表的方法，此方法可以被其他方法引用
+ * 其实我也不知道这是不是个方法
+  * */
+File[] fileList(String dir) {
+    file(dir).listFiles({file -> file.isFile() } as FileFilter).sort()
+}
