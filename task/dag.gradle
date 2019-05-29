@@ -1,0 +1,23 @@
+task distribution{
+    doLast{
+        println "We build the zip with version=$version"
+    }
+}
+
+task release{
+    dependsOn 'distribution'
+    doLast{
+        println 'We release now'
+    }
+}
+
+/* 任务执行之前修改版本属性 */
+gradle.taskGraph.whenReady {taskGraph ->
+    println "修改版本属性"
+    println taskGraph
+    if (taskGraph.hasTask(release)) {
+        version = '1.0'
+    } else {
+        version = '1.0-SNAPSHOT'
+    }
+}
